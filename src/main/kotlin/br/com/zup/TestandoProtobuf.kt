@@ -8,9 +8,10 @@ fun main() {
         .newBuilder()
         .setNome("Rodrigo Braz")
         .setCpf("111.111.111-11")
+        .setIdade(26)
         .setSalario(2000.0)
         .setAtivo(true)
-        .setCargo(Cargo.DEV)
+        .setCargo(Cargo.QA)
         .addEnderecos(FuncionarioRequest.Endereco.newBuilder()
             .setLogradouro("Rua A")
             .setCep("11111-111")
@@ -30,6 +31,7 @@ fun main() {
 
     // Alterando o objeto que foi carregado
     request2.setCargo(Cargo.GERENTE)
+        .build()
 
     println(request2)
 }

@@ -17,7 +17,7 @@ service FuncionarioService {
 
 enum Cargo {
   // Enums precisam começar com o numero zero
-  DEV = 0;
+  DEV = 0; // Valor defaut, por otimização não é serializado, o outro lado vai usá-lo caso o cargo venha vazio
   QA = 1;
   GERENTE = 2;
 }
