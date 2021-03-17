@@ -1,5 +1,8 @@
 package br.com.zup
 
+import java.io.FileInputStream
+import java.io.FileOutputStream
+
 fun main() {
     val request = FuncionarioRequest
         .newBuilder()
@@ -16,4 +19,17 @@ fun main() {
         .build()
 
     println(request)
+
+    // Serializando os dados para binários e persistindo em disco
+    request.writeTo(FileOutputStream("funcionario-request.bin"))
+
+    // Carregando e desserializando os dados em disco
+
+    val request2 = FuncionarioRequest.newBuilder()
+        .mergeFrom(FileInputStream("funcionario-request.bin"))
+
+    // Alterando o objeto que foi carregado
+    request2.setCargo(Cargo.GERENTE)
+
+    println(request2)
 }
